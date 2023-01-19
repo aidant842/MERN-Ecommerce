@@ -1,0 +1,52 @@
+{
+    "name": "mern-ecommerce",
+    "version": "1.0.0",
+    "description": "MERN shopping cart app",
+    "main": "server.js",
+    "type": "module",
+    "dependencies": {
+        "ansi-styles": "^4.3.0",
+        "braces": "^3.0.2",
+        "chalk": "^4.1.2",
+        "ci-info": "^3.7.1",
+        "color-convert": "^2.0.1",
+        "color-name": "^1.1.4",
+        "csstype": "^3.1.1",
+        "diff-sequences": "^29.3.1",
+        "dotenv": "^16.0.3",
+        "escape-string-regexp": "^2.0.0",
+        "expect": "^29.3.1",
+        "express": "^4.18.2",
+        "fill-range": "^7.0.1",
+        "graceful-fs": "^4.2.10",
+        "has-flag": "^4.0.0",
+        "is-number": "^7.0.0",
+        "jest-diff": "^29.3.1",
+        "jest-get-type": "^29.2.0",
+        "jest-matcher-utils": "^29.3.1",
+        "jest-message-util": "^29.3.1",
+        "jest-util": "^29.3.1",
+        "js-tokens": "^4.0.0",
+        "micromatch": "^4.0.5",
+        "picomatch": "^2.3.1",
+        "pretty-format": "^29.3.1",
+        "react-is": "^18.2.0",
+        "slash": "^3.0.0",
+        "stack-utils": "^2.0.6",
+        "supports-color": "^7.2.0",
+        "to-regex-range": "^5.0.1",
+        "typescript": "^4.9.4"
+    },
+    "scripts": {
+        "start": "node backend/server",
+        "server": "nodemon backend/server",
+        "client": "npm start --prefix frontend",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "author": "Aidan Thorpe",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^7.6.0",
+        "nodemon": "^2.0.20"
+    }
+}

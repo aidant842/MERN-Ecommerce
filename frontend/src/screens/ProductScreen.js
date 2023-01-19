@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "../components/Rating";
-import products from "../products";
 import { Link, useParams } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import axios from "axios";
 
 const ProductScreen = () => {
-    const params = useParams();
-    const product = products.find((product) => product._id === params.id);
-    const inStock = product.countInStock > 0;
+    const queryParams = useParams(); //params from url
+    const [product, setProduct] = useState({});
+    useEffect(() => {
+        const fetchProduct = async () => {
+            const { data } = await axios.get(`/api/products/${queryParams.id}`);
+            setProduct(data);
+        };
+
+        fetchProduct();
+    }, [queryParams]);
+    const isInStock = (product) => product.countInStock > 0;
     return (
         <>
             <Link className="btn btn-light my-3" to="/">
@@ -49,7 +57,9 @@ const ProductScreen = () => {
                                 <Row>
                                     <Col>Status:</Col>
                                     <Col>
-                                        {inStock ? "In Stock" : "Out Of Stock"}
+                                        {isInStock(product)
+                                            ? "In Stock"
+                                            : "Out Of Stock"}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
@@ -57,7 +67,7 @@ const ProductScreen = () => {
                                 <Button
                                     className="btn-block"
                                     type="button"
-                                    disabled={!inStock}
+                                    disabled={!isInStock(product)}
                                 >
                                     Add To Cart
                                 </Button>
