@@ -6,11 +6,13 @@
     "type": "module",
     "dependencies": {
         "ansi-styles": "^4.3.0",
+        "bcryptjs": "^2.4.3",
         "braces": "^3.0.2",
         "chalk": "^4.1.2",
         "ci-info": "^3.7.1",
         "color-convert": "^2.0.1",
         "color-name": "^1.1.4",
+        "colors": "^1.4.0",
         "csstype": "^3.1.1",
         "diff-sequences": "^29.3.1",
         "dotenv": "^16.0.3",
@@ -28,6 +30,7 @@
         "jest-util": "^29.3.1",
         "js-tokens": "^4.0.0",
         "micromatch": "^4.0.5",
+        "mongoose": "^6.8.4",
         "picomatch": "^2.3.1",
         "pretty-format": "^29.3.1",
         "react-is": "^18.2.0",
@@ -41,7 +44,9 @@
         "start": "node backend/server",
         "server": "nodemon backend/server",
         "client": "npm start --prefix frontend",
-        "dev": "concurrently \"npm run server\" \"npm run client\""
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "data:import": "node backend/seeder",
+        "data:destroy": "node backend/seeder -d"
     },
     "author": "Aidan Thorpe",
     "license": "MIT",
