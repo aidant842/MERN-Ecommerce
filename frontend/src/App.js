@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 const App = () => {
     return (
         <Router>
@@ -12,6 +13,7 @@ const App = () => {
             <main className="py-3">
                 <Container>
                     <Routes>
+                        <Route path="/login" element={<LoginScreen />}></Route>
                         <Route path="/" element={<HomeScreen />}></Route>
                         <Route
                             path="/product/:id"
